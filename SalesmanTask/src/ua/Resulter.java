@@ -19,7 +19,7 @@ public class Resulter {
 	
 	private final int onePositionCount;
 	
-	private final Map<Integer, List<Node>> usedByPosition = new HashMap();
+	private final Map<Integer, List<Node>> usedByPosition = new HashMap<>();
 
 	public Resulter(Node node) {
 		this.node = node;
@@ -44,8 +44,8 @@ public class Resulter {
 			Graph graph = new Graph(nodes.size());
 			for(int j = 0; j < nodes.size(); j++) {
 				Node node = this.node.getEdges().get((int)(Math.random()*this.node.getEdges().size())).getEnd();
-				if(!isUsedInGraph(graph, node)&&!isUsedByPosition(node, j)) {
-					Node start = j == 0 ? this.node : graph.getNodes()[j-1];
+				Node start = j == 0 ? this.node : graph.getNodes()[j-1];
+				if(!node.equals(start)&&!isUsedInGraph(graph, node)&&!isUsedByPosition(node, j)) {
 					graph.placeNode(j, node, findLength(start, node));
 				}else {
 					j--;
@@ -90,7 +90,7 @@ public class Resulter {
 				return edge.getLength();
 			}
 		}
-		throw new IllegalArgumentException("Something went wrong");
+		throw new IllegalArgumentException("Could not find in "+start.getEdges()+" end "+end);
 	}
 	
 	private int factorial(int number) {

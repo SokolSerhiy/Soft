@@ -7,9 +7,6 @@ public class Edge {
 	private Node end;
 	
 	private int length;
-	
-	public Edge() {
-	}
 
 	public Edge(Node end, int length) {
 		this.end = end;
@@ -39,11 +36,4 @@ public class Edge {
 	public void setLength(int length) {
 		this.length = length;
 	}
-
-	@Override
-	public String toString() {
-		return "Edge [start=" + start.getName() + ", end=" + end.getName() + ", length=" + length + "]";
-	}
-	
-	
 }
